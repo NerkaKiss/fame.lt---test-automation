@@ -332,4 +332,8 @@ public class Common {
     public static String getTextFromShadow(By shadowLocator, By insideLocator) {
         return getElement(shadowLocator).getShadowRoot().findElement(insideLocator).getText();
     }
+
+    public static void moveMouseToLocatorWithActions(By locator) {
+        getActions().moveToElement(getElement(locator)).build().perform();
+    }
 }

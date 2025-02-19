@@ -17,7 +17,7 @@ public class Driver {
         chromeOptions.addArguments("--force-device-scale-factor=0.7"); // mazinimas - didinimas
 //        chromeOptions.addArguments("--window-size=5000,3000");
 //        chromeOptions.addArguments("--window-position=1000,0");
-        chromeOptions.addArguments("--headless=new"); // silent atidarymas
+//        chromeOptions.addArguments("--headless=new"); // silent atidarymas
         WebDriverManager.chromedriver().setup();
         driver.set(new ChromeDriver(chromeOptions));
         /**
