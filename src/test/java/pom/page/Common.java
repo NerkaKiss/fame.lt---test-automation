@@ -336,4 +336,8 @@ public class Common {
     public static void moveMouseToLocatorWithActions(By locator) {
         getActions().moveToElement(getElement(locator)).build().perform();
     }
+
+    public static String getCustomAttribute(By locator, String attribute) {
+        return getElement(locator).getDomProperty(attribute);
+    }
 }

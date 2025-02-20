@@ -15,6 +15,7 @@ public class Driver {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--force-device-scale-factor=0.7"); // mazinimas - didinimas
+        chromeOptions.addArguments("--lang=en");
 //        chromeOptions.addArguments("--window-size=5000,3000");
 //        chromeOptions.addArguments("--window-position=1000,0");
 //        chromeOptions.addArguments("--headless=new"); // silent atidarymas

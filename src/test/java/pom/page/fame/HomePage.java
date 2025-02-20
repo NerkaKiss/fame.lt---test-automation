@@ -35,4 +35,37 @@ public class HomePage {
         Common.waitElementIsVisible(buttonSignOut, 8);
         return Common.isElementDisplayed(buttonSignOut);
     }
+
+    public static String readErrorMessageFromEmailInput() {
+        Common.waitForPageLoadAndAjaxComplete(2);
+        return Common.getCustomAttribute(formEmail, "validationMessage");
+    }
+
+    public static boolean isLoginButtonExists() {
+        return Common.isElementDisplayed(buttonSignIn);
+    }
+
+    public static boolean isInputEmailExists() {
+        return Common.isElementDisplayed(formEmail);
+    }
+
+    public static String readErrorMessageFromPasswordInput() {
+        Common.waitForPageLoadAndAjaxComplete(2);
+        return Common.getCustomAttribute(formPassword, "validationMessage");
+    }
+
+    public static void login() {
+        moveMouseToLoginRegisterButton();
+        enterEmail("mite.trudge7178@eagereverest.com");
+        enterPassword("89R!t9YJCS");
+        clickButtonLogin();
+    }
+
+    public static void clickButtonLogout() {
+        Common.clickOnElement(buttonSignOut);
+    }
+
+    public static boolean isInputPasswordExists() {
+        return Common.isElementDisplayed(formPassword);
+    }
 }

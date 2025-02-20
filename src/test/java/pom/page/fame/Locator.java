@@ -12,4 +12,8 @@ public class Locator {
                 "//div[@class='indent']/a[@href='https://fame.lt/?mylogout=']");
         public static final By divWelcomeMessage = By.xpath("//div[@class='indent']");
     }
+
+    public static class LoginPageLoc {
+        public static final By divErrorMessage = By.xpath("//div[@class='help-block']//li");
+    }
 }
