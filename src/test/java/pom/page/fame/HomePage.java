@@ -2,7 +2,7 @@ package pom.page.fame;
 
 import pom.page.Common;
 
-import static pom.page.fame.Locator.HomePageLoc.*;
+import static pom.page.Locator.HomePageLoc.*;
 
 public class HomePage {
     public static void open() {
@@ -67,5 +67,15 @@ public class HomePage {
 
     public static boolean isInputPasswordExists() {
         return Common.isElementDisplayed(formPassword);
+    }
+
+    public static void moveMouseToWomanButton() {
+        Common.waitForPageLoadAndAjaxComplete(8);
+        Common.moveMouseToLocatorWithActions(spanWomanSection);
+    }
+
+    public static void clickButtonJeans() {
+        Common.waitElementIsVisible(ulJeansButton, 3);
+        Common.clickOnElement(ulJeansButton);
     }
 }

@@ -2,7 +2,7 @@ package pom.page.fame;
 
 import pom.page.Common;
 
-import static pom.page.fame.Locator.LoginPageLoc.*;
+import static pom.page.Locator.LoginPageLoc.*;
 
 public class LoginPage {
 
