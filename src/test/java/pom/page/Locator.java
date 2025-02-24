@@ -40,6 +40,7 @@ public class Locator {
         public static final By hyperlinkProductName = By.xpath("//a[@class='label product-name']");
         public static final By spanProductPrice = By.xpath("//span[@class='product-price']");
         public static final By hyperlinkBuyCart = By.xpath("//a[@class='btn btn-primary']");
+        public static final By inputProductQuantity = By.xpath("//input[@name='product-quantity-spin']");
     }
 
     public static class CheckoutPageLoc {

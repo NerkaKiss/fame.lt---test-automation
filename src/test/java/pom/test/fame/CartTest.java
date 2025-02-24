@@ -21,11 +21,11 @@ public class CartTest extends TestBase {
         HomePage.clickButtonJeans();
         ProductsPage.clickOnFirstProductInJeansCategory();
         String expectedItemName = ProductPage.readProductName();
-        String expectedPrice = ProductPage.readProductPrice();
+        double expectedPrice = ProductPage.readProductPrice();
 
         ProductPage.clickButtonAddToCart();
         String actualItemName = CartModuleInPage.readProductName();
-        String actualPrice = CartModuleInPage.readPrice();
+        double actualPrice = CartModuleInPage.readPrice();
         String actualMessage = CartModuleInPage.readMessage();
 
         Assert.assertTrue(actualMessage.contains(expectedMessage),
@@ -41,12 +41,12 @@ public class CartTest extends TestBase {
         HomePage.clickButtonJeans();
         ProductsPage.clickOnFirstProductInJeansCategory();
         String expectedItemName = ProductPage.readProductName();
-        String expectedPrice = ProductPage.readProductPrice();
+        double expectedPrice = ProductPage.readProductPrice();
 
         ProductPage.clickButtonAddToCart();
         CartModuleInPage.clickOnButtonBuy();
         String actualItemName = CartPage.readProductName();
-        String actualPrice = CartPage.readPrice();
+        double actualPrice = CartPage.readPrice();
         String actualUrl = CartPage.readNewUrl();
 
         Assert.assertTrue(actualUrl.contains(expectedUrl),
@@ -62,13 +62,13 @@ public class CartTest extends TestBase {
         HomePage.clickButtonJeans();
         ProductsPage.clickOnFirstProductInJeansCategory();
         String expectedItemName = ProductPage.readProductName();
-        String expectedPrice = ProductPage.readProductPrice();
+        double expectedPrice = ProductPage.readProductPrice();
 
         ProductPage.clickButtonAddToCart();
         CartModuleInPage.clickOnButtonBuy();
         CartPage.refreshPage();
         String actualItemName = CartPage.readProductName();
-        String actualPrice = CartPage.readPrice();
+        double actualPrice = CartPage.readPrice();
         String actualUrl = CartPage.readNewUrl();
 
         Assert.assertTrue(actualUrl.contains(expectedUrl),
@@ -84,18 +84,36 @@ public class CartTest extends TestBase {
         HomePage.clickButtonJeans();
         ProductsPage.clickOnFirstProductInJeansCategory();
         String expectedItemName = ProductPage.readProductName();
-        String expectedPrice = ProductPage.readProductPrice();
+        double expectedPrice = ProductPage.readProductPrice();
 
         ProductPage.clickButtonAddToCart();
         CartModuleInPage.clickOnButtonBuy();
         CartPage.clickOnButtonBuy();
         String actualItemName = CheckoutPage.readProductName();
-        String actualPrice = CheckoutPage.readPrice();
+        double actualPrice = CheckoutPage.readPrice();
         String actualUrl = CheckoutPage.readNewUrl();
 
         Assert.assertTrue(actualUrl.contains(expectedUrl),
                 "\nActual: %s\nExpected contains: %s".formatted(actualUrl, expectedUrl));
         Assert.assertEquals(actualItemName, expectedItemName, "Product name not matched");
         Assert.assertEquals(actualPrice, expectedPrice, "Product price not matched");
+    }
+
+    @Test
+    public void testPositive_changeItemQuantityInCartPage_expectedQuantityTotalPrice() {
+        int itemQuantity = 2;
+        HomePage.moveMouseToWomanButton();
+        HomePage.clickButtonJeans();
+        ProductsPage.clickOnFirstProductInJeansCategory();
+        double expectedPrice = ProductPage.readProductPrice()*2;
+
+        ProductPage.clickButtonAddToCart();
+        CartModuleInPage.clickOnButtonBuy();
+        CartPage.changeItemQuantityTo(itemQuantity);
+        double actualPrice = CartPage.readNewPrice();
+        int actualQuantity = CartPage.readQuantity();
+
+        Assert.assertEquals(actualPrice, expectedPrice, "Product price not matched");
+        Assert.assertEquals(actualQuantity, itemQuantity, "Product quantity not matched");
     }
 }

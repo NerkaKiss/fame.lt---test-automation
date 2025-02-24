@@ -11,8 +11,9 @@ public class CheckoutPage {
         return productName.substring(0, productName.length() - 20);
     }
 
-    public static String readPrice() {
-        return Common.getTextFromElement(spanProductPrice);
+    public static double readPrice() {
+        return Double.parseDouble(Common.getTextFromElement(spanProductPrice)
+                .replace("EUR", "").strip().replace(",", "."));
     }
 
     public static String readNewUrl() {

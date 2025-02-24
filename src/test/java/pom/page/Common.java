@@ -66,6 +66,10 @@ public class Common {
         getElement(locator).sendKeys(input);
     }
 
+    public static void sendKeysToElement(By locator, Keys input) {
+        getElement(locator).sendKeys(input);
+    }
+
     public static void clickOnElement(By locator) {
         getElement(locator).click();
     }
@@ -117,7 +121,7 @@ public class Common {
         return false;
     }
 
-    public static WebDriverWait getWebDriverWait(int seconds) {
+    private static WebDriverWait getWebDriverWait(int seconds) {
         return new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(seconds));
     }
 
@@ -343,5 +347,11 @@ public class Common {
 
     public static void refreshPage() {
         Driver.getDriver().navigate().refresh();
+    }
+
+    public static void waitForTextToChange(By locator, int seconds) {
+        String OldTextFromElement = getTextFromElement(locator);
+        getWebDriverWait(seconds).until(ExpectedConditions
+                .not(ExpectedConditions.textToBePresentInElement(getElement(locator), OldTextFromElement)));
     }
 }

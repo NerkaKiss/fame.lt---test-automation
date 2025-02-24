@@ -10,8 +10,9 @@ public class ProductPage {
         return Common.getTextFromElement(headingProductName);
     }
 
-    public static String readProductPrice() {
-        return Common.getTextFromElement(divProductPrice);
+    public static double readProductPrice() {
+        return Double.parseDouble(Common.getTextFromElement(divProductPrice)
+                .replace("EUR", "").strip().replace(",", "."));
     }
 
     public static void clickButtonAddToCart() {

@@ -10,8 +10,9 @@ public class CartModuleInPage {
         return Common.getTextFromElement(spanProductName);
     }
 
-    public static String readPrice() {
-        return Common.getTextFromElement(paragraphProductPrice);
+    public static double readPrice() {
+        return Double.parseDouble(Common.getTextFromElement(paragraphProductPrice)
+                .replace("EUR", "").strip().replace(",", "."));
     }
 
     public static String readMessage() {
