@@ -340,4 +340,8 @@ public class Common {
     public static String getCustomAttribute(By locator, String attribute) {
         return getElement(locator).getDomProperty(attribute);
     }
+
+    public static void refreshPage() {
+        Driver.getDriver().navigate().refresh();
+    }
 }

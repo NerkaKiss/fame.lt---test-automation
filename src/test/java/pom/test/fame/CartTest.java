@@ -54,4 +54,26 @@ public class CartTest extends TestBase {
         Assert.assertEquals(actualItemName, expectedItemName, "Product name not matched");
         Assert.assertEquals(actualPrice, expectedPrice, "Product price not matched");
     }
+
+    @Test
+    public void testPositive_refreshCartAfterAddToCart_cartPage_expectedUrlNamePrice() {
+        String expectedUrl = "https://fame.lt/krepselis";
+        HomePage.moveMouseToWomanButton();
+        HomePage.clickButtonJeans();
+        ProductsPage.clickOnFirstProductInJeansCategory();
+        String expectedItemName = ProductPage.readProductName();
+        String expectedPrice = ProductPage.readProductPrice();
+
+        ProductPage.clickButtonAddToCart();
+        CartModuleInPage.clickOnButtonBuy();
+        CartPage.refreshPage();
+        String actualItemName = CartPage.readProductName();
+        String actualPrice = CartPage.readPrice();
+        String actualUrl = CartPage.readNewUrl();
+
+        Assert.assertTrue(actualUrl.contains(expectedUrl),
+                "\nActual: %s\nExpected contains: %s".formatted(actualUrl, expectedUrl));
+        Assert.assertEquals(actualItemName, expectedItemName, "Product name not matched");
+        Assert.assertEquals(actualPrice, expectedPrice, "Product price not matched");
+    }
 }

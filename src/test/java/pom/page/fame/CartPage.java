@@ -17,4 +17,9 @@ public class CartPage {
     public static String readNewUrl() {
         return Common.getCurrentUrl();
     }
+
+    public static void refreshPage() {
+        Common.waitElementIsVisible(hyperlinkProductName, 8);
+        Common.refreshPage();
+    }
 }
