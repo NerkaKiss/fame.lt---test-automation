@@ -33,5 +33,11 @@ public class Locator {
         public static final By spanProductName = By.xpath("//span[@class='h6 product-name']");
         public static final By paragraphProductPrice = By.xpath("//p[@class='price']");
         public static final By strongMessage = By.xpath("//strong[@id='myModalLabel']");
+        public static final By hyperlinkBuyCart = By.xpath("//a[@class='btn btn-primary']");
+    }
+
+    public static class CartPageLoc {
+        public static final By hyperlinkProductName = By.xpath("//a[@class='label product-name']");
+        public static final By spanProductPrice = By.xpath("//span[@class='product-price']");
     }
 }

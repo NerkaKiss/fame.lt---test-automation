@@ -17,4 +17,9 @@ public class CartModuleInPage {
     public static String readMessage() {
         return Common.getTextFromElement(strongMessage);
     }
+
+    public static void clickOnButtonBuy() {
+        Common.waitElementIsVisible(strongMessage, 8);
+        Common.clickOnElement(hyperlinkBuyCart);
+    }
 }
