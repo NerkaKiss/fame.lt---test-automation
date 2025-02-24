@@ -22,4 +22,9 @@ public class CartPage {
         Common.waitElementIsVisible(hyperlinkProductName, 8);
         Common.refreshPage();
     }
+
+    public static void clickOnButtonBuy() {
+        Common.waitElementIsVisible(hyperlinkProductName, 8);
+        Common.clickOnElement(hyperlinkBuyCart);
+    }
 }
