@@ -47,4 +47,18 @@ public class CartPage {
     public static int readQuantity() {
         return Integer.parseInt(Common.getElementValueByTag(inputProductQuantity, "value"));
     }
+
+    public static void clickOnRemoveFromCart() {
+        Common.waitElementIsVisible(hyperlinkBuyCart, 8);
+        Common.clickOnElement(hyperlinkRemoveFromCart);
+    }
+
+    public static boolean isCartEmpty() {
+        return !Common.isElementDisplayedBySize(divProductGrid);
+    }
+
+    public static String readMessage() {
+        Common.waitElementIsVisible(spanMessageNoItems, 8);
+        return Common.getTextFromElement(spanMessageNoItems);
+    }
 }

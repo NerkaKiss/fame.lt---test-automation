@@ -354,4 +354,8 @@ public class Common {
         getWebDriverWait(seconds).until(ExpectedConditions
                 .not(ExpectedConditions.textToBePresentInElement(getElement(locator), OldTextFromElement)));
     }
+
+    public static void waitForElementNotPresent(By locator, int seconds) {
+        getWebDriverWait(seconds).until(ExpectedConditions.numberOfElementsToBe(locator, 0));
+    }
 }

@@ -105,7 +105,7 @@ public class CartTest extends TestBase {
         HomePage.moveMouseToWomanButton();
         HomePage.clickButtonJeans();
         ProductsPage.clickOnFirstProductInJeansCategory();
-        double expectedPrice = ProductPage.readProductPrice()*2;
+        double expectedPrice = ProductPage.readProductPrice() * 2;
 
         ProductPage.clickButtonAddToCart();
         CartModuleInPage.clickOnButtonBuy();
@@ -115,5 +115,23 @@ public class CartTest extends TestBase {
 
         Assert.assertEquals(actualPrice, expectedPrice, "Product price not matched");
         Assert.assertEquals(actualQuantity, itemQuantity, "Product quantity not matched");
+    }
+
+    @Test
+    public void testPositive_deleteItemQuantityInCartPage_expectedEmptyCart() {
+        String expectedMessage = "Jūsų krepšelyje nėra prekių";
+        HomePage.moveMouseToWomanButton();
+        HomePage.clickButtonJeans();
+        ProductsPage.clickOnFirstProductInJeansCategory();
+
+        ProductPage.clickButtonAddToCart();
+        CartModuleInPage.clickOnButtonBuy();
+        CartPage.clickOnRemoveFromCart();
+        String actualMessage = CartPage.readMessage();
+        boolean emptyCart = CartPage.isCartEmpty();
+
+        Assert.assertTrue(emptyCart, "Cart is not empty");
+        Assert.assertTrue(actualMessage.contains(expectedMessage),
+                "\nActual: %s\nExpected contains: %s".formatted(actualMessage, expectedMessage));
     }
 }
