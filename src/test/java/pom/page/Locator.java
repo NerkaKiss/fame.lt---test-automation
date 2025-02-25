@@ -13,6 +13,8 @@ public class Locator {
         public static final By divWelcomeMessage = By.xpath("//div[@class='indent']");
         public static final By spanWomanSection = By.xpath("//span[normalize-space()='Moterims']");
         public static final By ulJeansButton = By.xpath("(//ul[@id='top-menu']/li[2]//li)[1]");
+        public static final By inputSearch = By.xpath("//input[@placeholder='Paieška...']");
+        public static final By divSearchSubmit = By.xpath("//div[@id='search_widget']//button[@type='submit']");
     }
 
     public static class LoginPageLoc {
@@ -49,5 +51,9 @@ public class Locator {
     public static class CheckoutPageLoc {
         public static final By paragraphProductName = By.xpath("//p[@class='s_title_block']");
         public static final By spanProductPrice = By.xpath("//span[@class='product-price pull-right']");
+    }
+
+    public static class SearchPageLoc {
+        public static final By headingProductTitle = By.xpath("//h3[@class='product-title']/a");
     }
 }

@@ -78,4 +78,13 @@ public class HomePage {
         Common.waitElementIsVisible(ulJeansButton, 3);
         Common.clickOnElement(ulJeansButton);
     }
+
+    public static void enterSearchQuery(String query) {
+        Common.waitForPageLoadAndAjaxComplete(8);
+        Common.sendKeysToElement(inputSearch, query);
+    }
+
+    public static void clickButtonSubmitSearch() {
+        Common.clickOnElement(divSearchSubmit);
+    }
 }
