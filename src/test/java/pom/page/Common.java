@@ -12,10 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pom.util.Driver;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static io.restassured.RestAssured.given;
 
@@ -160,7 +157,7 @@ public class Common {
     }
 
     public static List<String> getTextFromElements(By locator) {
-        List<String> textList = new ArrayList<>();
+        List<String> textList = new LinkedList<>();
         for (WebElement element : getElements(locator)) {
             textList.add(element.getText());
         }
@@ -357,5 +354,24 @@ public class Common {
 
     public static void waitForElementNotPresent(By locator, int seconds) {
         getWebDriverWait(seconds).until(ExpectedConditions.numberOfElementsToBe(locator, 0));
+    }
+
+    public static boolean isSorted(List<String> list, boolean isAscending) {
+
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (list.get(i).compareTo(list.get(i + 1)) > 0) {
+                isAscending = false;
+                break;
+            }
+        }
+
+        if (!isAscending) {
+            for (int i = 0; i < list.size() - 1; i++) {
+                if (list.get(i).compareTo(list.get(i + 1)) < 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
