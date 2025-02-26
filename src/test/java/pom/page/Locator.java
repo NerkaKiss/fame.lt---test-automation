@@ -55,5 +55,6 @@ public class Locator {
 
     public static class SearchPageLoc {
         public static final By headingProductTitle = By.xpath("//h3[@class='product-title']/a");
+        public static final By sectionProductsMessage = By.xpath("//section[@id='products']");
     }
 }
