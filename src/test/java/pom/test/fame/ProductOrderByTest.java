@@ -2,6 +2,7 @@ package pom.test.fame;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pom.page.fame.HomePage;
 import pom.page.fame.ProductsPage;
@@ -14,16 +15,26 @@ public class ProductOrderByTest extends TestBase {
         HomePage.open();
     }
 
-    @Test
-    public void testNegative_orderBy_expectedSortedByNameAZ() {
+    @DataProvider(name = "dataProviderOrderBy")
+    public Object[][] provideDataOrderBy() {
+        return new Object[][]{
+                {"A-Z", true, true},
+                {"Z-A", true, false},
+                {"LowestPrice", false, true},
+                {"HighestPrice", false, false}
+        };
+    }
+
+    @Test(dataProvider = "dataProviderOrderBy")
+    public void test(String orderBy, boolean byName, boolean isAscending) {
         boolean expectedResult = true;
         HomePage.moveMouseToWomanButton();
         HomePage.clickButtonJeans();
-        ProductsPage.clickOnButtonOrderBy();
-        ProductsPage.clickOnButtonNameAZ();
-        ProductsPage.refreshPage();
-        boolean actualResult = ProductsPage.isProductsSorted();
+        ProductsPage.clickOnDropDownMenuButtonOrderBy();
+        ProductsPage.clickOnButtonOrderBy(orderBy);
+        boolean actualResult = byName ?
+                ProductsPage.isProductsSortedByName(isAscending) : ProductsPage.isProductsSortedByPrice(isAscending);
 
-        Assert.assertEquals(actualResult, expectedResult, "Not sorted by NameAZ");
+        Assert.assertEquals(actualResult, expectedResult, "Sorted wrong");
     }
 }

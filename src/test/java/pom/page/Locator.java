@@ -25,10 +25,8 @@ public class Locator {
         public static final By divProductList = By.xpath("//div[@id='js-product-list']//article");
         public static final By divProductTitle = By.xpath("//h3[@class='product-title']/a");
         public static final By hyperlinkDropDownMenu = By.xpath("//a[@class='select-title']");
-        public static final By divOrderByNameAZ = By.xpath("//div[@class='dropdown-menu']/a[2]");
-        public static final By divOrderByNameZA = By.xpath("//div[@class='dropdown-menu']/a[3]");
-        public static final By divOrderByPriceAsc = By.xpath("//div[@class='dropdown-menu']/a[4]");
-        public static final By divOrderByPriceDesc = By.xpath("//div[@class='dropdown-menu']/a[5]");
+        public static final By divProductPrice =
+                By.xpath("//div[@class='product-price-and-shipping']/span[1]");
     }
 
     public static class ProductPageLoc {
