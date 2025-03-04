@@ -25,6 +25,8 @@ public class Locator {
         public static final By divProductList = By.xpath("//div[@id='js-product-list']//article");
         public static final By divProductTitle = By.xpath("//h3[@class='product-title']/a");
         public static final By hyperlinkDropDownMenu = By.xpath("//a[@class='select-title']");
+        public static final By buttonClearFilter =
+                By.xpath("//button[@class='btn js-search-filters-clear-all']");
         public static final By divProductPrice =
                 By.xpath("//div[@class='product-price-and-shipping']/span[1]");
     }
