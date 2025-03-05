@@ -35,6 +35,9 @@ public class Locator {
         public static final By headingProductName = By.xpath("//h1[@itemprop='name']");
         public static final By divProductPrice = By.xpath("//div[@class='current-price']/span");
         public static final By divAddToCart = By.xpath("//div[@class='add']//button");
+        public static final By divDescriptionBody = By.xpath("//div[@class='panel-body']//tbody//td");
+        public static final By divProductVariants =
+                By.xpath("//div[@class='product-variants']//span[@class='radio-label']");
     }
 
     public static class CartModuleInPageLoc {
