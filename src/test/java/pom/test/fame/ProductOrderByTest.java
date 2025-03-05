@@ -26,7 +26,7 @@ public class ProductOrderByTest extends TestBase {
     }
 
     @Test(dataProvider = "dataProviderOrderBy")
-    public void test(String orderBy, boolean byName, boolean isAscending) {
+    public void testPositive_orderProductsBy(String orderBy, boolean byName, boolean isAscending) {
         boolean expectedResult = true;
         HomePage.moveMouseToWomanButton();
         HomePage.clickButtonJeans();

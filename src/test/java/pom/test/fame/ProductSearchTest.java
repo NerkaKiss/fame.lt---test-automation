@@ -54,7 +54,7 @@ public class ProductSearchTest extends TestBase {
     }
 
     @Test(dataProvider = "dataProviderNegativeSearchQueries")
-    public void test(String searchQuery) {
+    public void testNegative_searchQueries(String searchQuery) {
         String expectedMessage = "There are no products in this category.";
         String expectedUrl = "https://fame.lt/paieska";
         String expectedTitle = "Paieška";

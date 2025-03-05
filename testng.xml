@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Fame.lt" parallel="methods" thread-count="4">
+    <test name="Fame.lt automation testing">
+        <classes>
+            <class name="pom.test.fame.CartTest">
+                <methods>
+                    <include name="testPositive_addToCart_cartModuleInPage_expectedMessageNamePrice"/>
+                    <include name="testPositive_addToCart_cartPage_expectedUrlNamePrice"/>
+                    <include name="testPositive_refreshCartAfterAddToCart_cartPage_expectedUrlNamePrice"/>
+                    <include name="testPositive_checkout_toCheckoutPage_expectedUrlProductNameProductPrice"/>
+                    <include name="testPositive_changeItemQuantityInCartPage_expectedQuantityTotalPrice"/>
+                    <include name="testPositive_deleteItemQuantityInCartPage_expectedEmptyCart"/>
+                </methods>
+            </class>
+            <class name="pom.test.fame.LoginLogoutTest">
+                <methods>
+                    <include name="testPositive_loginWithValidCredentials_expectedWelcomeMessage"/>
+                    <include name="testNegative_loginWithEmptyFields_expectedMessage"/>
+                    <include name="testNegative_loginWithWrongPassword_expectedMessageURLTitle"/>
+                    <include name="testPositive_logout_expectedLoginButtons"/>
+                </methods>
+            </class>
+            <class name="pom.test.fame.ProductFilterByTest">
+                <methods>
+                    <include name="testPositive_filteredProductListBySizeIsNotEmpty"/>
+                    <include name="testPositive_productCountDecreasesAfterFilteringBySize"/>
+                    <include name="testPositive_firstProductMatchesFilterSizeXS"/>
+                    <include name="testPositive_firstProductMatchesFilterSize"/>
+                </methods>
+            </class>
+            <class name="pom.test.fame.ProductOrderByTest">
+                <methods>
+                    <include name="testPositive_orderProductsBy"/>
+                </methods>
+            </class>
+            <class name="pom.test.fame.ProductSearchTest">
+                <methods>
+                    <include name="testPositive_searchQueries_expectedUrlTitleNameContains"/>
+                    <include name="testNegative_searchQueries"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
